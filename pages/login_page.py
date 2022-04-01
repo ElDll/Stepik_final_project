@@ -1,4 +1,4 @@
-from lib2to3.pgen2 import driver
+import time
 
 from .base_page import BasePage
 from .locators import LoginPageLocators
@@ -10,9 +10,10 @@ class LoginPage(BasePage):
         self.should_be_login_form()
         self.should_be_register_form()
 
+
     def should_be_login_url(self):
         current_url = self.browser.current_url
-        assert current_url == "http://selenium1py.pythonanywhere.com/ru/accounts/login/", "This is wrong url"
+        assert current_url == self.url, "This is wrong url"
 
 
     def should_be_login_form(self):
